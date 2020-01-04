@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -31,7 +32,7 @@ namespace AscendingFileCreationDate
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.Configure<FormOptions>(options => options.MultipartBodyLengthLimit = long.MaxValue); // or other given limit
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
