@@ -20,8 +20,8 @@ namespace AscendingFileCreationDate
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseKestrel(options => {
-                    options.Limits.MaxRequestBodySize = null; // or a given limit
+                .ConfigureKestrel(options => {
+                    options.Limits.MaxRequestBodySize = long.MaxValue; // or a given limit
                 });
     }
 }

@@ -30,7 +30,7 @@ namespace AscendingFileCreationDate.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(List<IFormFile> files)
+        public async Task<IActionResult> Index([FromForm]List<IFormFile> files)
         {
             if (files.Count == 0) throw new Exception("Kaput");
             var orderedFiles = files.OrderBy(o => o.FileName).ToList();
