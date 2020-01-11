@@ -41,6 +41,13 @@ namespace AscendingFileCreationDate.Controllers
                 {
                     foreach (var formFile in orderedFiles)
                     {
+                        // change file "date taken"
+                        // using (var fs = formFile.OpenReadStream())
+                        // {
+                        //     BitmapSource img 
+                        // }
+                        //
+
                         var demoFile = archive.CreateEntry(formFile.FileName);
                         
                         using (var entryStream = demoFile.Open())
